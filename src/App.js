@@ -1,24 +1,27 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import { AppBar, Toolbar, Typography } from '@mui/material';
+import Container from '@mui/material/Container';
 import './App.css';
+import AddItem from './AddItem';
+import Stack from '@mui/material/Stack';
 
 function App() {
+  const [items, setItems] = useState([]);
+  const addItem = item => {
+    setItems([item, ...items]);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container>
+      <AppBar position="static">
+        <Toolbar>
+          <Typography variant="h6">Shopping List</Typography>
+        </Toolbar>
+      </AppBar>
+      <Stack alignItems="center">
+        <AddItem addItem={addItem} />
+      </Stack>
+    </Container>
   );
 }
 
