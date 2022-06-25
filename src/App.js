@@ -4,6 +4,9 @@ import Container from '@mui/material/Container';
 import './App.css';
 import AddItem from './AddItem';
 import Stack from '@mui/material/Stack';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemText from '@mui/material/ListItemText';
 
 function App() {
   const [items, setItems] = useState([]);
@@ -20,6 +23,13 @@ function App() {
       </AppBar>
       <Stack alignItems="center">
         <AddItem addItem={addItem} />
+        <List>
+          {items.map((item, index) => (
+            <ListItem key={index} divider>
+              <ListItemText primary={item.product} secondary={item.amount} />
+            </ListItem>
+          ))}
+        </List>
       </Stack>
     </Container>
   );

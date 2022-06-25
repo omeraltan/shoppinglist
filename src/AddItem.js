@@ -25,7 +25,7 @@ const AddItem = props => {
   };
   return (
     <div>
-      <Button onClick={handleOpen}>Add Item</Button>
+      <Button variant="outlined" onClick={handleOpen}>Add Item</Button>
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle>New Item</DialogTitle>
         <DialogContent>
